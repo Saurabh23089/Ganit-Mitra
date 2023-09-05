@@ -66,3 +66,17 @@ body{
 
 
 
+@media (max-width : 768px) {
+
+    body{
+        background-size: 100%; 
+    background-position: right; 
+    background-attachment: fixed; 
+    }
+
+    .output .previousoperand,.output .currentoperand{
+        font-size: 1rem;
+    }
+    
+}
+
