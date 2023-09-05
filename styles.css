@@ -13,6 +13,7 @@ body{
 .calculator{
     display:grid;
     padding-top:40px;
+    padding-bottom:20px;
     justify-content: center;
     align-content: center;
     min-height: 30vh;
@@ -64,14 +65,4 @@ body{
 }
 
 
-
-@media (max-width : 768px) {
-    .calculator{
-        
-        padding-top:50px;
-        padding-left: 2px;
-        padding-right: 8px;
-       
-    }
-}
 
