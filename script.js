@@ -1,7 +1,4 @@
 class Calculator{
-    // A constructor to initialise all the values
-/*  calculator(previousoperandtextelement,currentoperandtextelement) Mistake 1 - Constructor keyword is used to create
-    to create a constructor in JS instead of the class name that happens in C++ */
     constructor(previousoperandtextelement,currentoperandtextelement)
     {
         this.previousoperandtextelement=previousoperandtextelement;
@@ -12,8 +9,8 @@ class Calculator{
     clear(){  // Clear function to clear up all the variables to clear the screen of our calculator
        this.currentoperand=' ';
        this.previousoperand=' ';
-       this.operation=undefined; // As there should not be any operation when we clear the screen
-    } // We will call this clear function because as we create a new calculator it should be clear initially
+       this.operation=undefined; 
+    }
 
     delete(){ // Delete function for removing a single number
         this.currentoperand=this.currentoperand.toString().slice(0,-1);
@@ -23,8 +20,7 @@ class Calculator{
 
     appendnumber(number){  // It will append a number to the current number on calc'screen
         if(number==='.'&&this.currentoperand.includes('.')) return 
-        /* If our number already contains one '.' then we don't want more decimals to be added so we
-        simply return without doing anything */
+        
         
         console.log(this.currentoperand);
         console.log(number);
@@ -32,11 +28,6 @@ class Calculator{
         console.log(typeof(number));
         console.log(typeof(this.currentoperand));
         
-        // if(this.currentoperand==='0' && number==='0'){
-        //    console.log("1");
-        //    return;
-        // }
-
         console.log(this.currentoperand[0]===0);
 
         if(number==='0'&&this.currentoperand==="0"){
@@ -47,15 +38,14 @@ class Calculator{
       
         
         this.currentoperand=this.currentoperand.toString()+number.toString();
-        /* Beacuse we want the number to be added instead of being added i.e we want 
-        1+1 to be 11 not 2 */ 
+        
     }
 
     chooseoperation(operation)  // It will choose an operation to perform
     {
         if(this.currentoperand==="Cannot divide by 0") return;
-      if(this.currentoperand===' ') return // If current operand is empty string then we need to return without doing anything
-      if(this.previousoperand!='')  // If previous operand is not empty then we should compute that first 
+      if(this.currentoperand===' ') return 
+      if(this.previousoperand!='')   
       {
         this.compute();
       }
@@ -87,7 +77,6 @@ class Calculator{
             
             case '÷':
                 console.log(this.currentoperand);
-                // console.log(typeof(this.currentoperand));
                 if(!this.currentoperand){
                     console.log("ok");
                     ans="Cannot divide by 0";
@@ -115,8 +104,6 @@ class Calculator{
        console.log(this.operation);
        console.log(this.previousoperand);
        if(this.operation!=undefined){
-        //    console.log(this.previousoperand);
-        //    console.log(this.operation);
            this.previousoperandtextelement.innerText=`${this.previousoperand} ${this.operation}`
            
         }
@@ -124,17 +111,12 @@ class Calculator{
             this.previousoperandtextelement.innerText=this.previousoperand;
         }
 
-       
-        // this.previousoperandtextelement.innerText=this.previousoperand;
-    //    console.log(this.currentoperandtextelement.innerText);
     }
 
      
 
 }
 
-/* The three basic things we need in a calculator is previous operand the user entered
-,the current operand that they are working on and the operation to perform if selected any */
 
 document.addEventListener('DOMContentLoaded',function(){
 
@@ -171,11 +153,8 @@ document.addEventListener('DOMContentLoaded',function(){
      });
 
      equalsbutton[0].addEventListener('click',() => {
-        // ans=this.currentoperandans;
         c1.previousoperand=Number(c1.previousoperand);
         c1.currentoperand=Number(c1.currentoperand);
-        // console.log(c1.previousoperand);
-        // console.log(c1.currentoperand);
         c1.compute();
         console.log(c1.ans);
         c1.currentoperand=c1.ans;
